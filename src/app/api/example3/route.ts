@@ -12,7 +12,7 @@ import { HttpResponseOutputParser } from "langchain/output_parsers";
 import { JSONLoader } from "langchain/document_loaders/fs/json";
 import { RunnableSequence } from "@langchain/core/runnables";
 import { formatDocumentsAsString } from "langchain/util/document";
-import { RecursiveCharacterTextSplitter } from "@langchain/textsplitters";
+
 
 const loader = new JSONLoader("src/data/qa.json");
 
@@ -27,7 +27,7 @@ const formatMessage = (message: VercelChatMessage) => {
 };
 
 const TEMPLATE = `Answer the user's questions based only on the following context. If the
-answer is out-of-context, reply politely that you don't have the information available.:
+question is out-of-context, reply politely that you don't have the information available.:
 ===================================
 Context: {context}
 ===================================
